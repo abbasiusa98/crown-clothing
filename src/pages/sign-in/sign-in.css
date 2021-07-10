@@ -1,15 +1,47 @@
 .sign-in-page {
-  float: right;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.sign-in-container {
   margin: 50px 100px;
   display: flex;
   flex-direction: column;
 }
 
-.title {
+.logo-container {
+  margin: auto;
+  text-align: center;
+}
+
+.logo {
+  margin: auto;
+  height: 100%;
+  width: 120px;
+  padding: 10px;
+}
+.sign-in-container .title {
   margin: 10px 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .subtitle {
   margin: 0px 20px;
+}
+
+.signup-containter {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.signup {
+  margin: 20px;
+  font-weight: bold;
+}
+
+.sign-in-container .buttons {
+  display: flex;
+  justify-content: space-between;
 }
