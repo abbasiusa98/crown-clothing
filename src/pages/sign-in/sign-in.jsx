@@ -8,9 +8,9 @@ import FormInput from "../../components/form-input/form-input";
 
 import CustomButton from "../../components/custom-button/custom-button";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
-
 import { signInWithGoogle } from "../../firebase/firebase.utills";
+
+import BigLogo from "../../components/big-logo/big-logo";
 
 class SignInPage extends React.Component {
   constructor(props) {
@@ -35,14 +35,7 @@ class SignInPage extends React.Component {
   render() {
     return (
       <div className="sign-in-page">
-        <div className="logo-container">
-          <Link to="/">
-            <Logo className="logo" />
-          </Link>
-          <h3 className="title">CROWN CLOTHING</h3>
-          <span className="subtitle">support@crownclothing.com</span>
-        </div>
-        <div className="sign-in-container">
+        <div className="sign-in">
           <h2 className="title">I already have an account</h2>
           <span className="subtitle">Sign in with your email and password</span>
           <form onSubmit={this.handleSubmit}>
@@ -69,13 +62,14 @@ class SignInPage extends React.Component {
               </CustomButton>
             </div>
           </form>
-          <div className="signup-containter">
+          <div className="sign-up">
             <p>Don't have an account? </p>
-            <Link className="signup" to="/signup">
+            <Link className="sign-up-link" to="/signup">
               SIGN UP
             </Link>
           </div>
         </div>
+        <BigLogo />
       </div>
     );
   }

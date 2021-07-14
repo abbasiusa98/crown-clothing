@@ -1,0 +1,19 @@
+.big-logo {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.big-logo .logo {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+}
+
+.big-logo .title {
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.big-logo .subtitle {
+  margin: 0px 20px;
+}
