@@ -8,7 +8,7 @@ import FormInput from "../../components/form-input/form-input";
 
 import CustomButton from "../../components/custom-button/custom-button";
 
-import { signInWithGoogle } from "../../firebase/firebase.utills";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utills";
 
 import BigLogo from "../../components/big-logo/big-logo";
 
@@ -26,10 +26,15 @@ class SignInPage extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ email: "", password: "" });
-    window.alert("Submitted");
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
