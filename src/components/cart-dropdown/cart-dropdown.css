@@ -11,11 +11,12 @@
   right: 40px;
   z-index: 5;
 }
+
 .cart-dropdown .cart-items {
   height: 240px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .cart-dropdown button {
   margin-top: auto;
