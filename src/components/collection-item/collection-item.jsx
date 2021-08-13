@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+
 import "./collection-item.css";
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, currentUser }) => {
   const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
@@ -14,7 +17,12 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="name">{name}</span>
         <span className="price">{`$${price}`}</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <CustomButton
+        onClick={
+          () => (currentUser ? addItem(item) : <Redirect to="/signin" />) // this is not working correctly
+        }
+        inverted
+      >
         {" "}
         ADD TO CART{" "}
       </CustomButton>
@@ -26,4 +34,8 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+const mapStateToProps = (state) => ({
+  currentUser: selectCurrentUser(state),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
